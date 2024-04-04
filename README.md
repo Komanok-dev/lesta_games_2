@@ -12,3 +12,8 @@ Web app. The interface is a page with a form for uploading a text file; after up
 Words are sorted by idf.
 
 You can read what tfidf is here: [tfidf](https://ru.wikipedia.org/wiki/TF-IDF). 
+
+**Run locally by command:**
+```
+uvicorn upload:app --reload
+```
