@@ -3,10 +3,10 @@ import re
 from fastapi import FastAPI, File, UploadFile, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
-
 from typing import Annotated
 
 from database import DatabaseHandler
+
 
 DISPLAY_ROWS = 50
 
@@ -15,14 +15,12 @@ templates = Jinja2Templates(directory="templates")
 
 
 @app.get('/', response_class=HTMLResponse)
-async def root_page(request: Request) -> Annotated[HTMLResponse, "HTMLResponse"]:
+async def root_page(request: Request) -> HTMLResponse:
     return templates.TemplateResponse('upload.html', {"request": request})
 
 
 @app.post('/upload/')
-async def upload_file(
-    request: Request, file: UploadFile=File(...)
-    ) -> Annotated[HTMLResponse, "HTMLResponse"]:
+async def upload_file(request: Request, file: UploadFile=File(...)) -> HTMLResponse:
     '''
     This func connects to db, checks if file exists, reads words from file
     and inserts them into db with needed connections between tables.

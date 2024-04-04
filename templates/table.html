@@ -4,12 +4,26 @@
     <meta charset="UTF-8" />
     <title>Table</title>
 </head>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+</style>
 <body>
-    <table>
+    <table border="1">
         <tr>
-            <td>word</td>
-            <td>tf</td>
-            <td>idf</td>
+            <td><strong>word</strong></td>
+            <td><strong>tf</strong></td>
+            <td><strong>idf</strong></td>
         </tr>
         {% for item in data %}
             <tr>
